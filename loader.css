@@ -1,0 +1,146 @@
+/* ============================================
+   Shared Page Loader
+   ============================================ */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg, #1a1d2b);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  /* Hidden by default — shown only on link navigation */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+/* Active state — JS removes loader-hidden to trigger this */
+#page-loader:not(.loader-hidden) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Explicit hidden class (belt-and-suspenders) */
+#page-loader.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Centre stack */
+.loader-inner {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spinning gradient ring */
+.loader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: #ea7c69;
+  border-right-color: #ea7c69;
+  animation: loader-spin 1.1s linear infinite;
+}
+
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Brand centre */
+.loader-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.loader-brand span {
+  font-size: 38px;
+  animation: loader-pulse 1.8s ease-in-out infinite;
+}
+
+.loader-brand p {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+@keyframes loader-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.18); }
+}
+
+/* Orbiting food emojis */
+.loader-orbit {
+  position: absolute;
+  inset: 0;
+  animation: loader-spin 6s linear infinite;
+}
+
+.orbit-emoji {
+  position: absolute;
+  font-size: 22px;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  top: 50%;
+  left: 50%;
+  transform: rotate(calc(var(--i) * 60deg)) translateY(-78px) rotate(calc(var(--i) * -60deg));
+  animation: loader-counter 6s linear infinite;
+}
+
+@keyframes loader-counter {
+  to {
+    transform: rotate(calc(var(--i) * 60deg)) translateY(-78px)
+               rotate(calc(360deg + var(--i) * -60deg));
+  }
+}
+
+/* Tagline */
+.loader-tagline {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.5px;
+  animation: loader-blink 1.6s ease-in-out infinite;
+}
+
+@keyframes loader-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Progress bar */
+.loader-bar {
+  width: 200px;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ea7c69, #f9a27a);
+  border-radius: 99px;
+  animation: loader-progress 1.8s ease-in-out infinite;
+}
+
+@keyframes loader-progress {
+  0%   { width: 0%;  margin-left: 0%; }
+  50%  { width: 80%; margin-left: 10%; }
+  100% { width: 0%;  margin-left: 100%; }
+}

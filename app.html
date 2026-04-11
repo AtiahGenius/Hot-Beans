@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hot Beans - POS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loader.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  
+  <!-- Top Navigation spanning the whole width -->
+  <nav class="pos-nav flex justify-between items-center relative">
+    <a href="index.html" class="logo">Hot Beans</a>
+    <button class="mobile-menu-btn" id="app-menu-btn" style="display: none; background: none; border: none; font-size: 28px; color: var(--text-main); cursor: pointer;"><i class="ph ph-list"></i></button>
+    <div class="nav-links flex gap-6 items-center" id="app-nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#contact">Contact Us</a>
+      <a href="#" id="history-nav-btn" title="Order History" style="font-size: 24px; color: var(--text-main);"><i class="ph ph-clock-counter-clockwise"></i></a>
+      <a href="#" class="btn btn-primary nav-btn">Order Now</a>
+    </div>
+  </nav>
+
+  <div class="pos-layout">
+    
+    <!-- Main Content Area -->
+    <main class="pos-main">
+      <header class="pos-header">
+        <div class="header-top flex justify-between items-center">
+          <div>
+            <h1 class="page-title">Hot Beans</h1>
+            <p class="text-muted current-date">Tuesday, 2 Feb 2021</p>
+          </div>
+          <div class="search-box flex items-center">
+            <i class="ph ph-magnifying-glass search-icon"></i>
+            <input type="text" placeholder="Search for food, coffe, etc..">
+          </div>
+        </div>
+
+        <div class="tabs flex">
+          <a href="#" class="tab active">Combos</a>
+          <a href="#" class="tab">Hot Dishes</a>
+          <a href="#" class="tab">Cold Dishes</a>
+          <a href="#" class="tab">Grill</a>
+          <a href="#" class="tab">Appetizer</a>
+          <a href="#" class="tab">Dessert</a>
+        </div>
+      </header>
+
+      <div class="pos-content">
+        <div class="content-header flex justify-between items-center">
+          <h2 class="section-title">Choose Dishes</h2>
+          <button class="dropdown-btn flex items-center gap-2" id="main-order-type-btn">
+            <i class="ph ph-caret-down"></i> Pick Up
+          </button>
+        </div>
+
+        <!-- Render Food Items dynamically via JS, but we place hardcoded placeholders for design fidelity -->
+        <div class="dish-grid" id="dish-grid">
+          <!-- Item Cards will go here -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar Cart -->
+    <aside class="pos-sidebar flex-col">
+      <div class="sidebar-header">
+        <h2>Orders #34562</h2>
+        <div class="order-types-toggle flex gap-3">
+          <button class="type-btn active" id="sidebar-pickup-btn">Pick Up</button>
+          <button class="type-btn" id="sidebar-delivery-btn">Delivery</button>
+        </div>
+      </div>
+
+      <div class="cart-labels flex justify-between">
+        <span class="text-muted">Item</span>
+        <div class="flex gap-4 cart-qty-labels">
+          <span class="text-muted">Qty</span>
+          <span class="text-muted">Price</span>
+        </div>
+      </div>
+
+      <div class="cart-items flex-col" id="cart-items">
+        <!-- Cart Items appended here -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="flex justify-between margin-bottom">
+          <span class="text-muted">Discount</span>
+          <span class="bold">$0</span>
+        </div>
+        <div class="flex justify-between margin-bottom my-2">
+          <span class="text-muted">Sub total</span>
+          <span class="bold" id="subtotal">$ 21.03</span>
+        </div>
+        <button class="btn btn-primary w-full continue-btn" id="continue-payment-btn">Continue to Payment</button>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- PAYMENT & CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="payment-modal">
+    <div class="modal-content flex">
+      
+      <!-- Left side: Confirmation List -->
+      <div class="modal-left flex-col">
+        <div class="modal-left-header">
+          <button class="btn-back" id="close-modal-btn"><i class="ph ph-arrow-left"></i></button>
+        </div>
+        
+        <div class="flex justify-between items-center modal-left-title-area">
+          <div>
+            <h2>Confirmation</h2>
+            <p class="text-muted">Orders #34562</p>
+          </div>
+          <button class="btn-add-more"><i class="ph ph-plus"></i></button>
+        </div>
+
+        <div class="modal-cart-items flex-col" id="modal-cart-items">
+          <!-- Modal cart items populated via JS -->
+        </div>
+
+        <div class="modal-cart-footer">
+          <div class="flex justify-between margin-bottom">
+            <span class="text-muted">Discount</span>
+            <span class="bold">$0</span>
+          </div>
+          <div class="flex justify-between margin-bottom my-2">
+            <span class="text-muted">Sub total</span>
+            <span class="bold" id="modal-subtotal">$ 21.03</span>
+          </div>
+          <button class="btn btn-primary w-full mobile-only-btn" id="mobile-continue-to-pay-btn" style="display: none;">Continue to Payment</button>
+        </div>
+      </div>
+
+      <!-- Right side: Payment Details -->
+      <div class="modal-right">
+        <div class="flex items-center gap-2 margin-bottom mobile-only-btn" style="display: none;">
+          <button class="btn-back" id="mobile-back-to-cart-btn"><i class="ph ph-arrow-left"></i></button>
+          <h2 style="margin:0;">Back to Cart</h2>
+        </div>
+        <h2>Payment</h2>
+        <p class="text-muted">3 payment method available</p>
+
+        <h3 class="payment-method-title">Payment Method</h3>
+        <div class="payment-methods flex gap-3">
+          <label class="payment-card active">
+            <input type="radio" name="payment" value="Credit Card" checked>
+            <i class="ph ph-credit-card"></i>
+            <span>Credit Card</span>
+            <i class="ph-fill ph-check-circle check-icon"></i>
+          </label>
+          <label class="payment-card">
+            <input type="radio" name="payment" value="Paystack">
+            <i class="ph ph-currency-circle-dollar"></i>
+            <span>Paystack</span>
+            <i class="ph-fill ph-check-circle check-icon"></i>
+          </label>
+        </div>
+
+        <form class="payment-form" id="checkout-form">
+          <!-- Dynamic Order Type Fields Container -->
+          <div id="dynamic-form-fields">
+            <!-- Inject fields dynamically from JS -->
+          </div>
+          
+          <!-- Static Payment Details (Usually handled by stripe/paystack elements in prod, but mock it here) -->
+          <div class="input-group">
+            <label>Cardholder Name / Account Name</label>
+            <input type="text" value="Levi Ackerman" required>
+          </div>
+          <div class="input-group">
+            <label>Card/Account Number</label>
+            <input type="text" value="2564 1421 0897 1244" required>
+          </div>
+
+          <div class="form-actions flex gap-4">
+            <button type="button" class="btn btn-outline flex-1" id="cancel-payment-btn">Cancel</button>
+            <button type="submit" class="btn btn-primary flex-1">Confirm Payment</button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ORDER HISTORY MODAL -->
+  <div class="modal-overlay" id="history-modal">
+    <div class="modal-content flex-col" style="width: 600px; padding: 32px; overflow-y: auto; display: flex; flex-direction: column;">
+      <div class="flex justify-between items-center margin-bottom" style="border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px;">
+        <h2>Order History</h2>
+        <button class="btn-back" id="close-history-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-main);"><i class="ph ph-x"></i></button>
+      </div>
+      <div id="history-list" class="flex-col gap-4">
+        <p class="text-muted text-center" style="margin-top: 40px;">No previous orders found.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Floating Cart Button -->
+  <button id="mobile-cart-fab" class="btn btn-primary" style="display: none; position: fixed; bottom: 24px; right: 24px; z-index: 900; box-shadow: 0 5px 15px rgba(234, 124, 105, 0.4); border-radius: 50px; padding: 16px 24px; font-weight: 600; gap: 8px; align-items: center;">
+    <i class="ph ph-shopping-cart" style="font-size: 20px;"></i> View Cart (<span id="fab-qty">0</span>)
+  </button>
+
+  <script src="app.js"></script>
+
+  <!-- Shared page transition loader -->
+  <script src="loader.js"></script>
+</body>
+</html>

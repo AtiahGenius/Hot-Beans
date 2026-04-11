@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hot Beans - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loader.css">
+  <link rel="stylesheet" href="index.css">
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+
+  <nav class="navbar">
+    <div class="container flex justify-between items-center">
+      <div class="logo">Hot Beans</div>
+      <div class="nav-links flex items-center gap-8">
+        <a href="#" class="active">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+        <!-- Order Now should link to the POS app app.html -->
+        <a href="app.html" class="btn btn-primary nav-btn">Order Now</a>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-btn"><i class="ph ph-list"></i></button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container grid hero-grid">
+      <div class="hero-content">
+        <div class="tag flex items-center gap-2">
+          <i class="ph ph-fire text-primary"></i> <span class="text-muted">Our Special Dish</span>
+        </div>
+        <h1 class="hero-title">A Premium Dish<br>From A Premium Kitchen</h1>
+        <p class="hero-subtitle text-muted">
+          Loaded with juicy, crunchy and mouthwatering veggies and sauce made fresh just for you. Grab yours today and
+          taste a different feel away from home.
+        </p>
+        <a href="app.html" class="btn btn-primary get-started flex items-center gap-2">Order Now <i
+            class="ph ph-arrow-right"></i></a>
+      </div>
+      <div class="hero-image" id="hero-carousel">
+        <img class="carousel-img active"
+          src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+          alt="Premium Noodle Dish">
+        <img class="carousel-img"
+          src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=200&auto=format&fit=crop"
+          alt="Spicy instant noodle" style="display:none;">
+        <img class="carousel-img"
+          src="https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?q=80&w=800&auto=format&fit=crop"
+          alt="Healthy noodle with spinach" style="display:none;">
+      </div>
+    </div>
+    <div class="hero-controls flex justify-center gap-2">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </header>
+
+  <section class="about-section" id="about">
+    <div class="container grid about-grid items-center">
+      <div class="about-image-card reveal reveal-left">
+        <div class="dots flex gap-2">
+          <span class="dot-red"></span>
+          <span class="dot-orange"></span>
+          <span class="dot-orange-light"></span>
+        </div>
+        <div class="inner-dark"></div>
+      </div>
+      <div class="about-content reveal reveal-right">
+        <span class="eyebrow">WHO WE ARE</span>
+        <h2 class="section-title">Made with love,<br>served with fire.</h2>
+        <p>Hot Beans is your go to kitchen for bold, flavour packed meals crafted fresh every single day.
+          From fiery noodle combos to slow-grilled BBQ perfection, we cook with passion, not shortcuts.
+        </p>
+        <p>Whether you're grabbing a quick bite or treating the whole crew, every plate that leaves our
+          kitchen is built to hit differently. Real ingredients. Real flavour. Real fast.</p>
+        <div class="socials flex gap-4">
+          <a href="#" class="social-icon"><i class="ph ph-instagram-logo"></i></a>
+          <a href="#" class="social-icon"><i class="ph ph-x-logo"></i></a>
+          <a href="#" class="social-icon"><i class="ph ph-tiktok-logo"></i></a>
+          <a href="#" class="social-icon"><i class="ph ph-facebook-logo"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container flex justify-between stats-container text-center">
+      <div class="stat-item reveal reveal-up">
+        <h3><span class="count-num" data-target="150" data-suffix="+">0</span></h3>
+        <p class="text-muted">Completed Orders</p>
+      </div>
+      <div class="stat-item reveal reveal-up" style="transition-delay:0.1s">
+        <h3><span class="count-num" data-target="98" data-suffix="%">0</span></h3>
+        <p class="text-muted">Client Satisfaction</p>
+      </div>
+      <div class="stat-item reveal reveal-up" style="transition-delay:0.2s">
+        <h3><span class="count-num" data-target="50" data-suffix="+">0</span></h3>
+        <p class="text-muted">Happy Clients</p>
+      </div>
+      <div class="stat-item reveal reveal-up" style="transition-delay:0.3s">
+        <h3>24/7</h3>
+        <p class="text-muted">Support Available</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-card reveal reveal-up">
+        <h2 class="text-center">Get Intouch</h2>
+        <form class="flex-col gap-4">
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-group">
+            <label>Message</label>
+            <textarea placeholder="What are you say?" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-full">Send Message</button>
+        </form>
+        <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-text text-center text-muted"
+          style="display:block; text-decoration:none;">or WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand reveal reveal-left">
+        <h2>Hot Beans</h2>
+        <p>Work together seamlessly with real-time updates and communication.</p>
+        <br>
+        <p>Team Conditional & Policy</p>
+      </div>
+      <div class="footer-links">
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">Customer</a></li>
+          <li><a href="#">Enterprise</a></li>
+          <li><a href="#">Partners</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright text-center">
+        @ Hot Beans. all right reserve
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" class="scroll-top-btn"><i class="ph ph-arrow-up"></i></button>
+
+  <script>
+    // Simple mobile menu toggle functionality
+    document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+      const navLinks = document.querySelector('.nav-links');
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '70px';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.backgroundColor = 'var(--bg)';
+        navLinks.style.padding = '20px';
+        navLinks.style.borderBottom = '1px solid var(--border)';
+      }
+    });
+
+    // Carousel script
+    const images = document.querySelectorAll('.carousel-img');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+
+    function switchSlide(index) {
+      images[currentIndex].style.display = 'none';
+      dots[currentIndex].classList.remove('active');
+      currentIndex = index;
+      images[currentIndex].style.display = 'block';
+      dots[currentIndex].classList.add('active');
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => switchSlide(index));
+    });
+
+    setInterval(() => {
+      switchSlide((currentIndex + 1) % images.length);
+    }, 5000); // Wait 5s before switching
+
+    // Scroll to Top logic
+    const scrollToTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('show');
+      } else {
+        scrollToTopBtn.classList.remove('show');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Handle resize to reset nav links
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        document.querySelector('.nav-links').style.display = 'flex';
+        document.querySelector('.nav-links').style.flexDirection = 'row';
+        document.querySelector('.nav-links').style.position = 'static';
+        document.querySelector('.nav-links').style.padding = '0';
+        document.querySelector('.nav-links').style.borderBottom = 'none';
+      } else {
+        document.querySelector('.nav-links').style.display = 'none';
+      }
+    });
+
+    // ---- Scroll Reveal Animation (IntersectionObserver) ----
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ---- Animated Number Counter ----
+    function animateCount(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1600;
+      const step = Math.ceil(duration / target);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += Math.ceil(target / (duration / 16));
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        el.textContent = current + suffix;
+      }, 16);
+    }
+
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.count-num').forEach(el => countObserver.observe(el));
+  </script>
+
+  <!-- Shared page transition loader -->
+  <script src="loader.js"></script>
+</body>
+
+</html>
