@@ -29,7 +29,7 @@
         <div class="loader-ring"></div>
         <div class="loader-brand">
           <span>&#x1F525;</span>
-          <p>Choppens</p>
+          <p>Chopin</p>
         </div>
       </div>
       <p class="loader-tagline">Preparing your feast&hellip;</p>
